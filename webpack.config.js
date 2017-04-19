@@ -39,7 +39,7 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Project',
+            title: 'GFM Editor',
             template: './src/root.ejs',
         }),
         new ExtractTextPlugin("app.css"),

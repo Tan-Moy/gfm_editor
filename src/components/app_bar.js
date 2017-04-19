@@ -5,7 +5,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
 
 function handleTouchTap() {
-  alert('This app bar does nothing of note yet.');
+  window.open('https://github.com/Tan-Moy');
 }
 
 const styles = {
