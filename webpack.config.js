@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: "./src/app.js",
+    entry: "./src/root.js",
     output: {
         path: __dirname + '/dist',
-        filename: 'app.bundle.js'
+        filename: 'bundle.js'
     },
 
     module: {
@@ -14,11 +14,18 @@ module.exports = {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
                 fallback: "style-loader",
-                use: ["css-loader", "sass-loader"]
+                use: [{
+                    loader: 'css-loader'
+                }, {
+                    loader: 'sass-loader',
+                    // options: {
+                    //     includePaths: ['./node_modules']
+                    // }
+                }]
             })
-        },{
+        }, {
             test: /\.js$/,
-            exclude:/node_modules/,
+            exclude: /node_modules/,
             use: 'babel-loader'
         }]
     },
@@ -33,7 +40,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Project',
-            template: './src/index.ejs',
+            template: './src/root.ejs',
         }),
         new ExtractTextPlugin("app.css"),
     ]
