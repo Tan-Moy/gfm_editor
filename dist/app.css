@@ -1,4 +1,2 @@
-body {
-  background-color: pink; }
-  body p {
-    color: blue; }
+#input-field, #output-field {
+  display: inline; }
